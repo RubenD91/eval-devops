@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Copy files to web directory
+      - name: Deploy to nginx folder
         run: |
-          sudo cp index.html /var/www/eval-devops/index.html
-          sudo systemctl reload nginx
+          cp index.html /var/www/eval-devops/index.html
+          systemctl reload nginx
