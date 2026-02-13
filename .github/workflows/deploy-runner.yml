@@ -16,4 +16,3 @@ jobs:
       - name: Deploy to nginx folder
         run: |
           cp index.html /var/www/eval-devops/index.html
-          systemctl reload nginx
