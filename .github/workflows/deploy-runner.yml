@@ -1,0 +1,19 @@
+name: CD - Deploy to Self Hosted Runner
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-runner:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Copy files to web directory
+        run: |
+          sudo cp index.html /var/www/eval-devops/index.html
+          sudo systemctl reload nginx
